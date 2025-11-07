@@ -8,7 +8,7 @@ const STATUS_BADGE_CLASSES: Record<Step["status"], string> = {
   Pending: "bg-gray-100 text-gray-800",
   Unfillable: "bg-amber-100 text-amber-800",
   "Ready for Scheduling": "bg-gray-100 text-gray-800",
-  "Ready for Pickup": "bg-green-100 text-green-800",
+  "Scheduled for Pickup": "bg-green-100 text-green-800",
 };
 
 type OrderSummaryCardProps = {
@@ -92,7 +92,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Est. Delivery</div>
-                <div className="text-base text-gray-900">22 Oct 2025</div>
+                <div className="text-base text-gray-900">22 Nov 2025</div>
               </div>
             </div>
           </div>

@@ -39,7 +39,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
   {
     id: 3,
     name: "Confirmation Received",
-    status: "Ready for Pickup",
+  status: "Scheduled for Pickup",
     strikePallets: false,
     capacity: { percent: 84, note: "84% of safe threshold" },
     bannerKey: "info-confirm",
@@ -62,7 +62,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
   {
     id: 4,
     name: "Contingency Preferences",
-    status: "Ready for Pickup",
+  status: "Scheduled for Pickup",
     strikePallets: false,
     capacity: { percent: 84, note: "84% of safe threshold" },
     bannerKey: "warn-pref",
@@ -79,7 +79,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
   {
     id: 5,
     name: "Final Confirmation",
-    status: "Ready for Pickup",
+  status: "Scheduled for Pickup",
     strikePallets: false,
     capacity: { percent: 84, note: "84% of safe threshold" },
     bannerKey: "info-final",

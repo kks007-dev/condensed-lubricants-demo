@@ -50,8 +50,8 @@ const DEMO_STEPS = {
   },
   'confirmation': {
     id: 3,
-    name: "Confirmation Received",
-    status: "Ready for Pickup",
+  name: "Confirmation Received",
+  status: "Scheduled for Pickup",
     strikePallets: false,
     capacity: { percent: 84, note: "84% of safe threshold" },
     bannerKey: "success",
@@ -59,8 +59,8 @@ const DEMO_STEPS = {
   },
   'contingency': {
     id: 4,
-    name: "Contingency Preferences",
-    status: "Ready for Pickup",
+  name: "Contingency Preferences",
+  status: "Scheduled for Pickup",
     strikePallets: false,
     capacity: { percent: 84, note: "84% of safe threshold" },
     bannerKey: "info",
@@ -68,8 +68,8 @@ const DEMO_STEPS = {
   },
   'final-confirmation': {
     id: 5,
-    name: "Final Confirmation",
-    status: "Ready for Pickup",
+  name: "Final Confirmation",
+  status: "Scheduled for Pickup",
     strikePallets: false,
     capacity: { percent: 84, note: "84% of safe threshold" },
     bannerKey: "success",

@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export type BannerTone = "info" | "warn" | "error" | "success";
 
-export type StepStatus = "Pending" | "Unfillable" | "Ready for Scheduling" | "Ready for Pickup";
+export type StepStatus = "Pending" | "Unfillable" | "Ready for Scheduling" | "Scheduled for Pickup";
 
 export type Step = {
   id: number;
