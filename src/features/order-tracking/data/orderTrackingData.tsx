@@ -5,53 +5,16 @@ export const ORDER_TRACKING_STEPS: Step[] = [
   {
     id: 1,
     name: "Initial View",
-    status: "Pending",
-    strikePallets: true,
+    // Screen 1: change Qty -> 1 pallet and status -> Ready for Scheduling
+    status: "Ready for Scheduling",
+    strikePallets: false,
     capacity: { percent: 70, note: "70% of safe threshold" },
     bannerKey: "info-initial",
     banner: <VoiceSessionBanner tone="info">Order accessed and reviewing details.</VoiceSessionBanner>,
   },
+  // Screens 2-4 removed for condensed demo
   {
     id: 2,
-    name: "Capacity Warning",
-    status: "Unfillable",
-    strikePallets: true,
-    capacity: { percent: 112, note: "112% of limit" },
-    bannerKey: "error-unfillable",
-    banner: (
-      <VoiceSessionBanner tone="error">
-        ⚠ This order cannot fit in a 20 ft container. Please adjust quantities or container size.
-      </VoiceSessionBanner>
-    ),
-  },
-  {
-    id: 3,
-    name: "AI Suggests Alternatives",
-    status: "Unfillable",
-    strikePallets: false,
-    capacity: { percent: 112, note: "112% of limit" },
-    bannerKey: "info-suggestions",
-    banner: (
-      <VoiceSessionBanner tone="info">
-        <div className="mb-1 font-medium">AI Suggestions</div>
-        <ul className="ml-5 list-disc space-y-1">
-          <li>20 drums + 1 pallet (recommended)</li>
-          <li>12 drums + 3 pallets</li>
-        </ul>
-      </VoiceSessionBanner>
-    ),
-  },
-  {
-    id: 4,
-    name: "Order Updated",
-    status: "Ready for Scheduling",
-    strikePallets: false,
-    capacity: { percent: 84, note: "84% of safe threshold" },
-    bannerKey: "info-updated",
-    banner: <VoiceSessionBanner tone="success">✅ Order updated successfully</VoiceSessionBanner>,
-  },
-  {
-    id: 5,
     name: "Freight Forwarder Setup",
     status: "Ready for Scheduling",
     strikePallets: false,
@@ -74,7 +37,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
     ),
   },
   {
-    id: 6,
+    id: 3,
     name: "Confirmation Received",
     status: "Ready for Pickup",
     strikePallets: false,
@@ -97,7 +60,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
     ),
   },
   {
-    id: 7,
+    id: 4,
     name: "Contingency Preferences",
     status: "Ready for Pickup",
     strikePallets: false,
@@ -114,7 +77,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
     ),
   },
   {
-    id: 8,
+    id: 5,
     name: "Final Confirmation",
     status: "Ready for Pickup",
     strikePallets: false,
@@ -127,52 +90,31 @@ export const ORDER_TRACKING_STEPS: Step[] = [
 export const VOICE_SESSION_TIMELINE: TimelineEvent[] = [
   {
     id: "finalized",
-    minStepId: 8,
+    minStepId: 5,
     title: "All updates verified and finalized",
     timestamp: "Oct 7, 2025 • 9:45 AM",
     dotClass: "bg-green-500",
   },
   {
     id: "contingency",
-    minStepId: 7,
+    minStepId: 4,
     title: "Set contingency preferences",
     timestamp: "Oct 7, 2025 • 9:40 AM",
     dotClass: "bg-blue-500",
   },
   {
     id: "pickup-confirmed",
-    minStepId: 6,
+    minStepId: 3,
     title: "Pickup confirmed by BlueBridge Freight",
     timestamp: "Oct 7, 2025 • 9:32 AM",
     dotClass: "bg-green-500",
   },
   {
     id: "pickup-requested",
-    minStepId: 5,
+    minStepId: 2,
     title: "Pickup confirmation requested",
     timestamp: "Oct 7, 2025 • 9:25 AM",
     dotClass: "bg-blue-500",
-  },
-  {
-    id: "order-updated",
-    minStepId: 4,
-    title: "Order updated successfully",
-    timestamp: "Oct 7, 2025 • 9:18 AM",
-    dotClass: "bg-green-500",
-  },
-  {
-    id: "ai-suggestions",
-    minStepId: 3,
-    title: "AI suggestions provided",
-    timestamp: "Oct 7, 2025 • 9:12 AM",
-    dotClass: "bg-blue-500",
-  },
-  {
-    id: "capacity",
-    minStepId: 2,
-    title: "Capacity issue identified",
-    timestamp: "Oct 7, 2025 • 9:05 AM",
-    dotClass: "bg-red-500",
   },
   {
     id: "initial",

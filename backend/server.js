@@ -39,35 +39,8 @@ const DEMO_STEPS = {
     bannerKey: "info",
     message: "Order accessed and reviewing details."
   },
-  'capacity-warning': {
-    id: 2,
-    name: "Capacity Warning",
-    status: "Unfillable",
-    strikePallets: true,
-    capacity: { percent: 112, note: "112% of limit" },
-    bannerKey: "error",
-    message: "\u26A0 This order cannot fit in a 20 ft container. Please adjust quantities or container size."
-  },
-  'ai-suggestions': {
-    id: 3,
-    name: "AI Suggests Alternatives",
-    status: "Unfillable",
-    strikePallets: false,
-    capacity: { percent: 112, note: "112% of limit" },
-    bannerKey: "info",
-    message: "AI Suggestions\n  \u2705 20 drums + 1 pallet (recommended)\n \u2705 12 drums + 3 pallets"
-  },
-  'order-updated': {
-    id: 4,
-    name: "Order Updated",
-    status: "Ready for Scheduling",
-    strikePallets: false,
-    capacity: { percent: 84, note: "84% of safe threshold" },
-    bannerKey: "success",
-    message: "\u2705 Order updated successfully"
-  },
   'freight-setup': {
-    id: 5,
+    id: 2,
     name: "Freight Forwarder Setup",
     status: "Ready for Scheduling",
     strikePallets: false,
@@ -76,7 +49,7 @@ const DEMO_STEPS = {
     message: "Confirm Pickup\nFreight Forwarder: BlueBridge Freight\nPickup Date: 10 Oct 2025"
   },
   'confirmation': {
-    id: 6,
+    id: 3,
     name: "Confirmation Received",
     status: "Ready for Pickup",
     strikePallets: false,
@@ -85,7 +58,7 @@ const DEMO_STEPS = {
     message: "\u2705 Shipment Confirmed\nFreight Forwarder: BlueBridge Freight\nPickup Date: 10 Oct 2025"
   },
   'contingency': {
-    id: 7,
+    id: 4,
     name: "Contingency Preferences",
     status: "Ready for Pickup",
     strikePallets: false,
@@ -94,7 +67,7 @@ const DEMO_STEPS = {
     message: "Product Substitution Preferences\n\u2022 If Premium Hydraulic Oil ISO VG 32 unavailable \u2192 use Synthetic 32\n\u2022 If FleetGuard 15W-40 unavailable \u2192 omit pallet"
   },
   'final-confirmation': {
-    id: 8,
+    id: 5,
     name: "Final Confirmation",
     status: "Ready for Pickup",
     strikePallets: false,
@@ -178,23 +151,7 @@ app.post('/webhook/demo-step', (req, res) => {
 });
 
 // Specific webhook endpoints for each tool from your workflow
-app.post('/webhook/unfillable-status', (req, res) => {
-  console.log('Unfillable status webhook triggered');
-  io.emit('demo-step', DEMO_STEPS['capacity-warning']);
-  res.json({ success: true, step: 'capacity-warning' });
-});
-
-app.post('/webhook/send-suggestions', (req, res) => {
-  console.log('Send suggestions webhook triggered');
-  io.emit('demo-step', DEMO_STEPS['ai-suggestions']);
-  res.json({ success: true, step: 'ai-suggestions' });
-});
-
-app.post('/webhook/update-order', (req, res) => {
-  console.log('Update order webhook triggered');
-  io.emit('demo-step', DEMO_STEPS['order-updated']);
-  res.json({ success: true, step: 'order-updated' });
-});
+// Removed unfillable/suggestions/update webhook endpoints for condensed demo
 
 app.post('/webhook/call-freighter', (req, res) => {
   console.log('Call freighter webhook triggered');

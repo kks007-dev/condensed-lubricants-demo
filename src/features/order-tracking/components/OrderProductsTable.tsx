@@ -1,12 +1,10 @@
  import Skeleton from "@/components/common/Skeleton";
 
 type OrderProductsTableProps = {
-  strikePallets: boolean;
-  stepId: number;
   loading?: boolean;
 };
 
-export default function OrderProductsTable({ strikePallets, stepId, loading = false }: OrderProductsTableProps) {
+export default function OrderProductsTable({ loading = false }: OrderProductsTableProps) {
   return (
     <section>
       <h2 className="mb-2 font-semibold">Products</h2>
@@ -34,10 +32,11 @@ export default function OrderProductsTable({ strikePallets, stepId, loading = fa
                 <td className="p-2">20 drums</td>
                 <td className="p-2">Steel</td>
               </tr>
-              <tr className={stepId === 2 ? "bg-red-50" : ""}>
+              <tr>
                 <td className="p-2">2048415</td>
                 <td className="p-2">FleetGuard 15W-40</td>
-                <td className="p-2">{strikePallets ? "4 pallets" : "1 pallet"}</td>
+                {/* Always show condensed qty: 1 pallet */}
+                <td className="p-2">1 pallet</td>
                 <td className="p-2">Plastic</td>
               </tr>
             </tbody>

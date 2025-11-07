@@ -48,7 +48,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Freight Forwarder</div>
-                {step.id >= 6 ? (
+                {step.id >= 3 ? (
                   <div className="text-base text-gray-900">BlueBridge Freight</div>
                 ) : (
                   <div className="text-base text-gray-900">&nbsp;</div>
@@ -60,7 +60,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
       </CardHeader>
 
       <CardContent className="space-y-6 p-6">
-        <OrderProductsTable strikePallets={step.strikePallets} stepId={step.id} loading={loadingSections.products} />
+    <OrderProductsTable loading={loadingSections.products} />
 
         <section>
           <h2 className="mb-2 font-semibold">Shipping Details</h2>
@@ -80,7 +80,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Freight Forwarder</div>
-                {step.id >= 6 ? (
+                {step.id >= 3 ? (
                   <div className="text-base text-gray-900">BlueBridge Freight</div>
                 ) : (
                   <div className="text-base font-semibold text-red-600">Unconfirmed</div>

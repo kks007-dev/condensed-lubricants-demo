@@ -5,7 +5,7 @@
  * Run this after starting the backend server to test real-time updates
  */
 
-const BASE_URL = 'https://localhost:5173';
+const BASE_URL = 'http://localhost:3001';
 
 // Helper function to make HTTP requests
 async function makeRequest(endpoint, data = {}) {
@@ -34,39 +34,24 @@ async function runDemoSequence() {
   const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   
   try {
-    // Step 1: Initial capacity warning
-    console.log('📢 Voice Agent: "I see there\'s a capacity issue with this order..."');
-    await makeRequest('/webhook/unfillable-status');
-    await delay(3000);
-    
-    // Step 2: AI suggestions
-    console.log('🤖 Voice Agent: "Let me suggest some alternatives..."');
-    await makeRequest('/webhook/send-suggestions');
-    await delay(3000);
-    
-    // Step 3: Order update
-    console.log('✅ Voice Agent: "I\'ll update the order with the recommended configuration..."');
-    await makeRequest('/webhook/update-order');
-    await delay(3000);
-    
-    // Step 4: Freight setup
-    console.log('🚛 Voice Agent: "Now I\'ll set up the freight forwarding..."');
-    await makeRequest('/webhook/call-freighter');
-    await delay(3000);
-    
-    // Step 5: Confirmation
-    console.log('📞 Voice Agent: "Pickup has been confirmed..."');
-    await makeRequest('/webhook/confirm-pickup');
-    await delay(3000);
-    
-    // Step 6: Contingency planning
-    console.log('🔄 Voice Agent: "Setting up backup options..."');
-    await makeRequest('/webhook/set-backups');
-    await delay(3000);
-    
-    // Step 7: Final confirmation
-    console.log('📧 Voice Agent: "Sending final confirmation email..."');
-    await makeRequest('/webhook/send-email');
+  // Step 1: Freight setup (condensed flow)
+  console.log('🚛 Voice Agent: "Now I\'ll set up the freight forwarding..."');
+  await makeRequest('/webhook/call-freighter');
+  await delay(2000);
+
+  // Step 2: Confirmation
+  console.log('📞 Voice Agent: "Pickup has been confirmed..."');
+  await makeRequest('/webhook/confirm-pickup');
+  await delay(2000);
+
+  // Step 3: Contingency planning
+  console.log('🔄 Voice Agent: "Setting up backup options..."');
+  await makeRequest('/webhook/set-backups');
+  await delay(2000);
+
+  // Step 4: Final confirmation
+  console.log('📧 Voice Agent: "Sending final confirmation email..."');
+  await makeRequest('/webhook/send-email');
     
     console.log('\n🎉 Demo sequence completed!');
     
@@ -80,9 +65,6 @@ async function testIndividualEndpoints() {
   console.log('🧪 Testing individual webhook endpoints...\n');
   
   const endpoints = [
-    '/webhook/unfillable-status',
-    '/webhook/send-suggestions', 
-    '/webhook/update-order',
     '/webhook/call-freighter',
     '/webhook/confirm-pickup',
     '/webhook/set-backups',
@@ -101,9 +83,6 @@ async function testGenericEndpoint() {
   
   const steps = [
     'initial',
-    'capacity-warning',
-    'ai-suggestions',
-    'order-updated',
     'freight-setup',
     'confirmation',
     'contingency',
