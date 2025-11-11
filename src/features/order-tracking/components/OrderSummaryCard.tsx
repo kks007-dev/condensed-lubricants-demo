@@ -44,7 +44,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Ship Date</div>
-                <div className="text-base text-gray-900">10 Nov 2025</div>
+                <div className="text-base text-gray-900">10 Dec 2025</div>
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Freight Forwarder</div>
@@ -68,7 +68,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
             <div className="grid grid-cols-4 gap-6">
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Pickup Date</div>
-                <div className="text-base text-gray-900">10 Nov 2025</div>
+                <div className="text-base text-gray-900">10 Dec 2025</div>
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Origin Port</div>
@@ -92,7 +92,7 @@ export default function OrderSummaryCard({ step, loadingSections }: OrderSummary
               </div>
               <div>
                 <div className="mb-1 text-base tracking-wide text-gray-500">Est. Delivery</div>
-                <div className="text-base text-gray-900">22 Nov 2025</div>
+                <div className="text-base text-gray-900">22 Dec 2025</div>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
           </div>
           <div>
             <div className="mb-1 text-base tracking-wide text-gray-500">Pickup Date</div>
-            <div className="text-base text-gray-900">10 Nov 2025</div>
+            <div className="text-base text-gray-900">10 Dec 2025</div>
           </div>
         </div>
       </VoiceSessionBanner>
@@ -53,7 +53,7 @@ export const ORDER_TRACKING_STEPS: Step[] = [
           </div>
           <div>
             <div className="mb-1 text-base tracking-wide text-gray-500">Pickup Date</div>
-            <div className="text-base text-gray-900">10 Nov 2025</div>
+            <div className="text-base text-gray-900">10 Dec 2025</div>
           </div>
         </div>
       </VoiceSessionBanner>
